@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK DEV | Professional Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="pic/favicon.png">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --secondary: #8338ec;
+            --dark: #212529;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .portfolio-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+        
+        .contact-input {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .contact-input:focus {
+            border-bottom-color: var(--primary);
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-gradient {
+            background: linear-gradient(90deg, var(--primary), var(--secondary), #ffbe0b, var(--primary));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientMove 4s ease-in-out infinite;
+        }
+        .pricing-card {
+            position: relative;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .pricing-card:hover {
+            box-shadow: 0 20px 40px -10px rgba(58,134,255,0.15), 0 8px 24px -8px rgba(131,56,236,0.10);
+            transform: translateY(-8px) scale(1.03);
+            z-index: 2;
+        }
+        /* From Uiverse.io by david-mohseni */
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+  height: 120px;
+  width: 100%;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877f2;
+  color: #fff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #e4405f;
+  color: #fff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background: #ff0000;
+  color: #fff;
+}
+
+.radio {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.radio > input {
+  position: absolute;
+  appearance: none;
+}
+
+.radio > label {
+  cursor: pointer;
+  font-size: 30px;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.radio > label > svg {
+  fill: #666;
+  transition: fill 0.3s ease;
+}
+
+.radio > label::before,
+.radio > label::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #ff9e0b;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+  animation: particle-explosion 1s ease-out;
+}
+
+.radio > label::before {
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+}
+
+.radio > label::after {
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+}
+
+.radio > label:hover::before,
+.radio > label:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.5);
+}
+
+.radio > label:hover {
+  transform: scale(1.2);
+  animation: pulse 0.6s infinite alternate;
+}
+
+/* Star glow and animation on hover */
+.radio > label:hover > svg {
+  fill: #ff9e0b;
+  filter: drop-shadow(0 0 15px rgba(255, 158, 11, 0.9));
+  animation: shimmer 1s ease infinite alternate;
+}
+
+.radio > input:checked + label > svg {
+  fill: #ff9e0b;
+  filter: drop-shadow(0 0 15px rgba(255, 158, 11, 0.9));
+  animation: pulse 0.8s infinite alternate;
+}
+
+.radio > input:checked + label ~ label > svg,
+.radio > input:checked + label > svg {
+  fill: #ff9e0b; /* Highlight the stars */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes particle-explosion {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(255, 158, 11, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(255, 158, 11, 1));
+  }
+}
+
+.radio > input:checked + label:hover,
+.radio > input:checked + label:hover ~ label {
+  fill: #e58e09;
+}
+
+.radio > label:hover,
+.radio > label:hover ~ label {
+  fill: #ff9e0b;
+}
+
+.radio input:checked ~ label svg {
+  fill: #ffa723;
+}
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold gradient-text">MK DEV</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home" class="nav-link text-gray-800 hover:text-blue-500 font-medium">Home</a>
+                        <a href="#about" class="nav-link text-gray-800 hover:text-blue-500 font-medium">About</a>
+                        <a href="#services" class="nav-link text-gray-800 hover:text-blue-500 font-medium">Services</a>
+                        <a href="#portfolio" class="nav-link text-gray-800 hover:text-blue-500 font-medium">Portfolio</a>
+                        <a href="#contact" class="nav-link text-gray-800 hover:text-blue-500 font-medium">Contact</a>
+                        <a href="#contact" class="px-6 py-2 rounded-full gradient-bg text-white font-medium hover:opacity-90 transition">Let's Talk</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-800 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg pb-4">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-500">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-500">About</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-500">Services</a>
+                <a href="#portfolio" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-500">Portfolio</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-500">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                    Hi, I'm <span class="gradient-text">Muhammad Khubaib</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl text-gray-700 mb-8 font-medium">
+                    Professional Web Developer with 8+ Years Experience
+                </h2>
+                <p class="text-gray-600 mb-10 text-lg max-w-lg">
+                    I craft high-performing, beautiful, and responsive websites that help your business stand out and convert visitors into customers.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#portfolio" class="px-8 py-3 rounded-full gradient-bg text-white font-medium hover:opacity-90 transition">View My Work</a>
+                    <a href="#contact" class="px-8 py-3 rounded-full border-2 border-gray-600 text-gray-700 font-medium hover:bg-gray-100 transition">Contact Me</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative max-w-md">
+                    <div class="relative z-10 floating">
+                        <div class="bg-white p-2 rounded-2xl shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" 
+                                 alt="Web Development" class="rounded-xl object-cover w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-purple-100 rounded-full opacity-50"></div>
+                    <div class="absolute top-10 -left-10 w-32 h-32 bg-blue-100 rounded-full opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About <span class="gradient-text">Me</span></h2>
+            <div class="w-20 h-1 gradient-bg rounded-full mx-auto"></div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/3">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl mx-auto">
+                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80" 
+                             alt="Muhammad Khubaib" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-5 left-0 right-0 mx-auto w-44 bg-white shadow-md rounded-full py-2 px-4">
+                        <h3 class="text-center font-bold text-gray-800">Muhammad Khubaib</h3>
+                        <p class="text-center text-sm text-gray-600">Founder & Lead Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-2/3 mt-12 md:mt-0">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Professional Web Developer & Designer</h3>
+                <p class="text-gray-600 mb-6">
+                    With over 8 years of experience in the web development industry, I've helped businesses of all sizes establish a powerful online presence. My journey began with a passion for creating things on the web, which has evolved into delivering exceptional digital experiences that drive results.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <div class="flex items-center">
+                        <div class="mr-4 text-blue-500">
+                            <i class="fas fa-check-circle text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-800">Web Development</h4>
+                            <p class="text-gray-600">Custom websites built for performance and SEO</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="mr-4 text-blue-500">
+                            <i class="fas fa-check-circle text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-800">Responsive Design</h4>
+                            <p class="text-gray-600">Perfect display on all devices</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="mr-4 text-blue-500">
+                            <i class="fas fa-check-circle text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-800">E-Commerce Solutions</h4>
+                            <p class="text-gray-600">Online stores that convert visitors to buyers</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="mr-4 text-blue-500">
+                            <i class="fas fa-check-circle text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-800">Maintenance & Support</h4>
+                            <p class="text-gray-600">Ongoing care for your digital assets</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-4">My Skills</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">HTML & CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">JavaScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">React.js</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Node.js</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">My <span class="gradient-text">Services</span></h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">I offer a comprehensive range of web development services to help your business thrive in the digital landscape.</p>
+            <div class="w-20 h-1 gradient-bg rounded-full mx-auto mt-4"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+                <div class="text-blue-500 text-4xl mb-6">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Custom Web Development</h3>
+                <p class="text-gray-600 mb-4">
+                    Tailor-made websites built from scratch to match your exact specifications and business needs. 
+                </p>
+                <ul class="text-gray-600 space-y-2 mb-8 text-center">
+                    <li>100% Custom Design</li>
+                    <li>Mobile-Optimized</li>
+                    <li>SEO-Friendly Structure</li>
+                </ul>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+                <div class="text-purple-500 text-4xl mb-6">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">E-Commerce Solutions</h3>
+                <p class="text-gray-600 mb-4">
+                    Powerful online stores with seamless checkout, product management, and payment integration.
+                </p>
+                <ul class="text-gray-600 space-y-2 mb-8 text-center">
+                    <li>Shopping Cart & Checkout</li>
+                    <li>Payment Gateway Integration</li>
+                    <li>Inventory Management</li>
+                </ul>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+                <div class="text-red-500 text-4xl mb-6">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Responsive Web Design</h3>
+                <p class="text-gray-600 mb-4">
+                    Websites that look and function perfectly on all devices, from desktops to smartphones.
+                </p>
+                <ul class="text-gray-600 space-y-2 mb-8 text-center">
+                    <li>Fluid Grid Layouts</li>
+                    <li>Flexible Images</li>
+                    <li>Media Queries</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">My <span class="gradient-text">Portfolio</span></h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">A selection of my recent projects that showcase my skills and expertise in web development.</p>
+            <div class="w-20 h-1 gradient-bg rounded-full mx-auto mt-4"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="portfolio-item group rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative">
+                    <img src="pic/dfggsdfsf.webp" alt="Solar Power Dashboard" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="#contact" class="text-white text-lg font-semibold">View Project</a>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Solar Power Dashboard</h3>
+                    <p class="text-gray-600 mb-4">A modern analytics dashboard for monitoring solar energy production, usage, and efficiency in real time.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">React</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">Tailwind CSS</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">API</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="portfolio-item group rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative">
+                    <img src="pic/dsfdfsd.webp" alt="E-Commerce Platform" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="#contact" class="text-white text-lg font-semibold">View Project</a>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">E-Commerce Platform</h3>
+                    <p class="text-gray-600 mb-4">A scalable online store with seamless checkout, product management, and secure payment integration.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">Next.js</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">Stripe</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="portfolio-item group rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative">
+                    <img src="pic/ff.webp" alt="Fitness App UI" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="#contact" class="text-white text-lg font-semibold">View Project</a>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Fitness App UI</h3>
+                    <p class="text-gray-600 mb-4">A sleek and intuitive user interface for a fitness tracking app, featuring progress charts and workout plans.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">Figma</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">UI/UX</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">Mobile</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="portfolio-item group rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative">
+                    <img src="pic/sads.webp" alt="Business Landing Page" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="#contact" class="text-white text-lg font-semibold">View Project</a>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Business Landing Page</h3>
+                    <p class="text-gray-600 mb-4">A high-converting landing page designed for startups and businesses to maximize lead generation.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">HTML</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">CSS</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 5 -->
+            <div class="portfolio-item group rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative">
+                    <img src="pic/sdas.png" alt="Brand Portfolio Website" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="#contact" class="text-white text-lg font-semibold">View Project</a>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Brand Portfolio Website</h3>
+                    <p class="text-gray-600 mb-4">A visually stunning portfolio site to showcase brand identity, projects, and testimonials for creative professionals.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">WordPress</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">PHP</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">Branding</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 6 -->
+            <div class="portfolio-item group rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative">
+                    <img src="pic/solar%20popwe.webp" alt="Solar Popwe Analytics" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="#contact" class="text-white text-lg font-semibold">View Project</a>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Solar Popwe Analytics</h3>
+                    <p class="text-gray-600 mb-4">A comprehensive analytics platform for solar energy companies to track performance and optimize output.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">Analytics</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">Dashboard</span>
+                        <span class="text-xs font-semibold bg-gray-200 text-gray-700 rounded-full px-3 py-1">Energy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Simple <span class="gradient-text">Pricing</span>
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Choose the plan that fits your needs. No hidden fees, cancel anytime.
+            </p>
+            <div class="w-20 h-1 gradient-bg rounded-full mx-auto mt-4"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Basic Plan -->
+            <div class="pricing-card group relative border rounded-2xl shadow-lg p-8 flex flex-col items-center bg-white overflow-hidden transition-transform duration-300 hover:-translate-y-3 hover:shadow-2xl">
+                <div class="absolute -top-10 -left-10 w-32 h-32 bg-gradient-to-tr from-blue-400 to-purple-400 opacity-20 rounded-full blur-2xl animate-pulse"></div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Starter</h3>
+                <div class="text-4xl font-extrabold gradient-text mb-4 animate-gradient">$99</div>
+                <ul class="text-gray-600 space-y-2 mb-8 text-center">
+                    <li>1 Page Website</li>
+                    <li>Responsive Design</li>
+                    <li>Basic SEO</li>
+                    <li>Email Support</li>
+                </ul>
+                <a href="#contact" class="px-6 py-2 rounded-full gradient-bg text-white font-medium hover:opacity-90 transition">Get Started</a>
+            </div>
+            <!-- Pro Plan -->
+            <div class="pricing-card group relative border-2 border-blue-500 rounded-2xl shadow-xl p-10 flex flex-col items-center bg-blue-50 overflow-hidden scale-105 z-10 transition-transform duration-300 hover:-translate-y-3 hover:shadow-2xl">
+                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-tr from-blue-400 to-purple-400 opacity-30 rounded-full blur-2xl animate-pulse"></div>
+                <h3 class="text-xl font-bold text-blue-700 mb-2">Professional</h3>
+                <div class="text-5xl font-extrabold gradient-text mb-4 animate-gradient">$259</div>
+                <ul class="text-gray-700 space-y-2 mb-8 text-center">
+                    <li>Up to 5 Pages</li>
+                    <li>Custom Design</li>
+                    <li>SEO Optimization</li>
+                    <li>Priority Support</li>
+                </ul>
+                <a href="#contact" class="px-8 py-3 rounded-full gradient-bg text-white font-semibold hover:opacity-90 transition">Choose Plan</a>
+            </div>
+            <!-- Premium Plan -->
+            <div class="pricing-card group relative border rounded-2xl shadow-lg p-8 flex flex-col items-center bg-white overflow-hidden transition-transform duration-300 hover:-translate-y-3 hover:shadow-2xl">
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-tr from-purple-400 to-blue-400 opacity-20 rounded-full blur-2xl animate-pulse"></div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Premium</h3>
+                <div class="text-4xl font-extrabold gradient-text mb-4 animate-gradient">$499</div>
+                <ul class="text-gray-600 space-y-2 mb-8 text-center">
+                    <li>Unlimited Pages</li>
+                    <li>Advanced Features</li>
+                    <li>Full SEO Suite</li>
+                    <li>24/7 Support</li>
+                </ul>
+                <a href="#contact" class="px-6 py-2 rounded-full gradient-bg text-white font-medium hover:opacity-90 transition">Start Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in <span class="gradient-text">Touch</span></h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Have any questions or want to discuss a project? I'm here to help!</p>
+            <div class="w-20 h-1 gradient-bg rounded-full mx-auto mt-4"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="md:pr-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Contact Information</h3>
+                <!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/xblypbaa"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email" class="1122">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+                <p class="text-gray-600 mb-4">
+                    <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
+                    123 Web Dev Street, Code City, CA 12345
+                </p>
+                <p class="text-gray-600 mb-4">
+                    <i class="fas fa-phone-alt text-blue-500 mr-2"></i>
+                    +92 307 384 0683
+                </p>
+                <p class="text-gray-600 mb-4">
+                    <i class="fas fa-envelope text-blue-500 mr-2 1122"></i>
+                    devmk173@gmail.com
+                </p>
+                <div class="flex gap-4 mt-6">
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition">
+                        <i class="fab fa-facebook-f fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition">
+                        <i class="fab fa-linkedin-in fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:pl-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Send a Message</h3>
+                <form action="https://formspree.io/f/yourNewFormID" method="POST" class="space-y-4">
+                    <div>
+                        <input type="text" name="name" placeholder="Your Name" required class="contact-input w-full p-3 rounded-md focus:ring-2 focus:ring-primary focus:outline-none">
+                    </div>
+                    <div>
+                        <input type="email" name="email" placeholder="Your Email" required class="contact-input w-full p-3 rounded-md focus:ring-2 focus:ring-primary focus:outline-none">
+                    </div>
+                    <div>
+                        <textarea name="message" rows="4" placeholder="Your Message" required class="contact-input w-full p-3 rounded-md focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full px-6 py-3 rounded-md gradient-bg text-white font-medium hover:opacity-90 transition">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ratings & Reviews Section -->
+<section id="reviews" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      Client <span class="gradient-text">Reviews</span>
+    </h2>
+    <p class="text-gray-600 max-w-2xl mx-auto">
+      See what my clients say about working with me!
+    </p>
+    <div class="w-20 h-1 gradient-bg rounded-full mx-auto mt-4"></div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Review 1 -->
+    <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+      <div class="radio mb-4">
+        <input value="1" name="rating1" type="radio" id="rating1-1" />
+        <label title="1 star" for="rating1-1">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+        </label>
+        <input value="2" name="rating1" type="radio" id="rating1-2" />
+        <label title="2 stars" for="rating1-2">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+        </label>
+        <input value="3" name="rating1" type="radio" id="rating1-3" />
+        <label title="3 stars" for="rating1-3">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+        </label>
+        <input value="4" name="rating1" type="radio" id="rating1-4" />
+        <label title="4 stars" for="rating1-4">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+        </label>
+        <input value="5" name="rating1" type="radio" id="rating1-5" checked />
+        <label title="5 stars" for="rating1-5">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+        </label>
+      </div>
+      <p class="text-gray-700 text-center mb-4">“Absolutely fantastic work! The website exceeded my expectations and was delivered ahead of schedule.”</p>
+      <div class="flex items-center gap-3 mt-2">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-10 h-10 rounded-full">
+        <div>
+          <div class="font-semibold text-gray-800">James Carter</div>
+          <div class="text-xs text-gray-500">CEO, SolarTech</div>
+        </div>
+      </div>
+    </div>
+    <!-- Review 2 -->
+    <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+      <div class="radio mb-4">
+        <input type="radio" id="star5-2" name="rating2" checked>
+        <label for="star5-2">
+          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </label>
+        <input type="radio" id="star4-2" name="rating2">
+        <label for="star4-2">
+          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </label>
+        <input type="radio" id="star3-2" name="rating2">
+        <label for="star3-2">
+          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </label>
+        <input type="radio" id="star2-2" name="rating2">
+        <label for="star2-2">
+          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </label>
+        <input type="radio" id="star1-2" name="rating2">
+        <label for="star1-2">
+          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </label>
+      </div>
+      <p class="text-gray-700 text-center mb-4">“Very professional and easy to work with. The e-commerce site is fast, secure, and looks amazing!”</p>
+      <div class="flex items-center gap-3 mt-2">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-10 h-10 rounded-full">
+        <div>
+          <div class="font-semibold text-gray-800">Sophia Lee</div>
+          <div class="text-xs text-gray-500">Founder, ShopEase</div>
+        </div>
+      </div>
+    </div>
+    <!-- Review 3 -->
+    <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+      <div class="radio mb-4">
+        <input type="radio" id="star5-3" name="rating3" checked>
+        <label for="star5-3">
+          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </label>
+        <input type="radio" id="star4-3" name="rating3">
+        <label for="star4-3">
+          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </label>
+        <input type="radio" id="star3-3" name="rating3">
+        <label for="star3-3">
+          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </label>
+        <input type="radio" id="star2-3" name="rating3">
+        <label for="star2-3">
+          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </label>
+        <input type="radio" id="star1-3" name="rating3">
+        <label for="star1-3">
+          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </label>
+      </div>
+      <p class="text-gray-700 text-center mb-4">“The new portfolio site is stunning and has helped me attract more clients. Highly recommended!”</p>
+      <div class="flex items-center gap-3 mt-2">
+        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client" class="w-10 h-10 rounded-full">
+        <div>
+          <div class="font-semibold text-gray-800">David Kim</div>
+          <div class="text-xs text-gray-500">Freelance Designer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400 text-sm">
+                &copy; 2023 MK DEV. All rights reserved. | Designed by Muhammad Khubaib
+            </p>
+        </div>
+    </footer>
+
+    <!-- Social Media Buttons -->
+<ul class="wrapper">
+  <li class="icon facebook">
+    <span class="tooltip">Facebook</span>
+    <span><i class="fab fa-facebook-f"></i></span>
+  </li>
+  <li class="icon twitter">
+    <span class="tooltip">Twitter</span>
+    <span><i class="fab fa-twitter"></i></span>
+  </li>
+  <li class="icon instagram">
+    <span class="tooltip">Instagram</span>
+    <span><i class="fab fa-instagram"></i></span>
+  </li>
+  <li class="icon youtube">
+    <span class="tooltip">YouTube</span>
+    <span><i class="fab fa-youtube"></i></span>
+  </li>
+</ul>
+
+    <script>
+        // Portfolio image lightbox
+        document.querySelectorAll('.portfolio-item img').forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', function() {
+                const overlay = document.createElement('div');
+                overlay.className = 'lightbox-overlay';
+                overlay.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+                overlay.onclick = () => overlay.remove();
+                document.body.appendChild(overlay);
+            });
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
